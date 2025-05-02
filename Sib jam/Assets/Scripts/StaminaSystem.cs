@@ -8,14 +8,25 @@ public class StaminaSystem : MonoBehaviour
     [SerializeField] private float staminaDrainRate = 50f; // Скорость расхода в секунду
 
     [Header("UI")]
-    [SerializeField] private Image staminaBar; // Просто Image (не RectTransform)
+    [SerializeField] private Image staminaBar; // Просто Image
 
     private float currentStamina;
+    private bool isStaminaActive = true; // Управление активностью стамины
 
     private void Awake()
     {
         currentStamina = maxStamina;
         UpdateStaminaBar();
+    }
+
+    private void OnEnable()
+    {
+        isStaminaActive = true; // Активируем стамину при включении объекта
+    }
+
+    private void OnDisable()
+    {
+        isStaminaActive = false; // Деактивируем стамину при отключении объекта
     }
 
     private void Update()
@@ -36,4 +47,6 @@ public class StaminaSystem : MonoBehaviour
         float normalized = currentStamina / maxStamina;
         staminaBar.fillAmount = normalized;
     }
+
+    // Пример использования: отключите объект игрока (например, при смерти), и стамина перестанет расходоваться
 }
