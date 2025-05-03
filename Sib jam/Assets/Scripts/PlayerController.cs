@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private float lastWalkSoundTime;
     private bool wasGroundedLastFrame;
+    private float startScaleX;
 
     // Хэши для анимаций
     private static readonly int IdleHash = Animator.StringToHash("idle");
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        startScaleX = transform.localScale.x;
         rb = GetComponent<Rigidbody2D>();
        // animator = GetComponent<Animator>();
 
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
             // Анимация прыжка (только если не на земле и не лазаем)
             if (rb.velocity.y > 0.1f)
             {
-                animator.SetTrigger(JumpHash);
+                //animator.SetTrigger(JumpHash);
             }
 
             // Анимация idle/run
@@ -126,7 +128,8 @@ public class PlayerController : MonoBehaviour
         // Поворот персонажа
         if (horizontal != 0)
         {
-            transform.localScale = new Vector3(Mathf.Sign(horizontal), 1f, 1f);
+
+            transform.localScale = new Vector3(Mathf.Sign(horizontal)*startScaleX, transform.localScale.y, transform.localScale.z);
         }
     }
 
