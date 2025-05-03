@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6174680833553140335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6438693170500734153}
+  - component: {fileID: 9111233101008661992}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6438693170500734153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6174680833553140335}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7332703, y: 4.0804114, z: 0.038589202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9111233101008661992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6174680833553140335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985b3187c833a374cbb0fb53550bc656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world1: {fileID: 0}
+  world2: {fileID: 0}
+  fadePanel: {fileID: 0}
+  fadeDuration: 0.5
+  switchSounds:
+  - {fileID: 8300000, guid: 7b7cd39533e59fa4395b973f6f4dd8eb, type: 3}
+  - {fileID: 8300000, guid: ad3c4efba97c4a24a8ac5c15b16955ad, type: 3}
+  switchAudioSource: {fileID: 0}
+  musicWorld1: {fileID: 8300000, guid: 1f8656dd9dfb8d3439de1ebbbbfb24e8, type: 3}
+  musicWorld2: {fileID: 8300000, guid: 91be5b38ccfade145ba86e08016a59ea, type: 3}
+  musicAudioSource1: {fileID: 0}
+  musicAudioSource2: {fileID: 0}
+  musicFadeDuration: 0.5
