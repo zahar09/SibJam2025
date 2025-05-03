@@ -307,17 +307,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1216623546836846014, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1452578873063356196, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2651217250395571700, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3332691250647307716, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3537760148106362246, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_Pivot.x
@@ -401,11 +405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3813634903652810195, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4102396855925666660, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4872606469616518642, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_Name
@@ -413,15 +417,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6416519519023323267, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7224814983572561084, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7704465517487646078, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
