@@ -92,17 +92,17 @@ public class WorldSwitcher : MonoBehaviour
         // 3. Затемнить экран
         yield return FadeScreen(1f);
 
-        world1.SetActive(isWorld1Active);
-        world2.SetActive(!isWorld1Active);
+        world1.SetActive(!isWorld1Active);
+        world2.SetActive(isWorld1Active);
 
         // 4. Включить новую музыку с фейд-ин
         yield return FadeInMusic();
 
-        // 5. Переключить миры
-        isWorld1Active = !isWorld1Active;
-
-        // 6. Показать экран
+        // 4. Показать экран
         yield return FadeScreen(0f);
+
+        // 6. Переключить миры
+        isWorld1Active = !isWorld1Active;
     }
 
     private IEnumerator FadeScreen(float targetAlpha)
