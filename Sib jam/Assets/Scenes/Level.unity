@@ -155,6 +155,11 @@ Transform:
   - {fileID: 1382429286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &83709591 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3122164929925236299, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 1626188479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145162725
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +693,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 631}
     m_Modifications:
+    - target: {fileID: 2160843719976053242, guid: 1bab5b84236d59c45bce040d9299a165, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 83709591}
     - target: {fileID: 2160843719976053242, guid: 1bab5b84236d59c45bce040d9299a165, type: 3}
       propertyPath: activeSprite
       value: 
@@ -1780,6 +1789,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ffcee18dd9d0434daf02b5c9283d6bc, type: 3}
+--- !u!82 &1650578258 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 738535318840787975, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 1626188479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1689618968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1804,6 +1818,14 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 5270674323678411692, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
+      propertyPath: jumpAudioSource
+      value: 
+      objectReference: {fileID: 2083492560}
+    - target: {fileID: 5270674323678411692, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
+      propertyPath: walkAudioSource
+      value: 
+      objectReference: {fileID: 1650578258}
     - target: {fileID: 6742864394406936289, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -2541,6 +2563,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
+--- !u!82 &2083492560 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2101698912923575061, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 1626188479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
