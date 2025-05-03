@@ -1006,6 +1006,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
+--- !u!82 &1241179473 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1539162389491461098, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 1626188479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1242577351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2034,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: appearAudioSource
+      value: 
+      objectReference: {fileID: 1241179473}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: disappearAudioSource
+      value: 
+      objectReference: {fileID: 1241179473}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: appearSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: appearSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45d4121e8453d8b4b8c078c692824fe8, type: 3}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: appearSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 19b6f046daa0721489550f92c8524404, type: 3}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: disappearSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: disappearSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b4cc4ebbd66152d4ab3fc4705d9fd93c, type: 3}
+    - target: {fileID: 6798430850758727218, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
+      propertyPath: disappearSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 24e58342a5654aa4381960ede8f2bf05, type: 3}
     - target: {fileID: 7204424558505395574, guid: d9f8ca9249a673942bab083cd5c3ae55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.9791
