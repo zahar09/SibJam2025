@@ -65,8 +65,8 @@ public class PauseMenuController : MonoBehaviour
 
     private void PauseGame()
     {
-        channelSwitcher.EnableChannel("MusicUI");
-        channelSwitcher.DisableChannel("MusicExploration");
+        //channelSwitcher.EnableChannel("MusicUI");
+        //channelSwitcher.DisableChannel("MusicExploration");
 
         isPaused = true;
         Time.timeScale = 0;
@@ -114,8 +114,8 @@ public class PauseMenuController : MonoBehaviour
 
     private void ResumeGame()
     {
-        channelSwitcher.DisableChannel("MusicUI");
-        channelSwitcher.EnableChannel("MusicExploration");
+        //channelSwitcher.DisableChannel("MusicUI");
+        //channelSwitcher.EnableChannel("MusicExploration");
         ClearActiveTweens();
 
         // Последовательное скрытие кнопок в обратном порядке

@@ -302,9 +302,14 @@ MonoBehaviour:
   targetDarkness: 0.7
   fadeEase: 6
   scaleEase: 27
-  pauseOverlay: {fileID: 0}
-  menuButtons: []
-  darkeningPanel: {fileID: 0}
+  pauseOverlay: {fileID: 1314486039139716549}
+  menuButtons:
+  - {fileID: 5025736651444768332}
+  - {fileID: 4329614733247027878}
+  - {fileID: 4256023431077924464}
+  - {fileID: 7480340897988253179}
+  - {fileID: 4825882943745667432}
+  darkeningPanel: {fileID: 7084754170806504521}
 --- !u!114 &7740444897270876055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,9 +324,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: ed65f6661f8aa294691dfedf9f9b435e, type: 2}
   channels:
-  - name: 
-    slider: {fileID: 0}
-    mixerParameter: 
+  - name: Master
+    slider: {fileID: 6195009986207144095}
+    mixerParameter: Master
+  - name: Ambient
+    slider: {fileID: 3999325358100865221}
+    mixerParameter: Ambient
+  - name: SFX
+    slider: {fileID: 1519279411759995983}
+    mixerParameter: SoundFX
+  - name: Music
+    slider: {fileID: 1693134568039232178}
+    mixerParameter: Music
 --- !u!1 &1244282397037592115
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7085281917355533210}
+  - component: {fileID: 1314486039139716549}
   m_Layer: 5
   m_Name: pauseOverlay
   m_TagString: Untagged
@@ -844,6 +859,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1314486039139716549
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3753272616306109226}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4023122793104793445
 GameObject:
   m_ObjectHideFlags: 0
