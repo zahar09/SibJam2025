@@ -326,7 +326,11 @@ MonoBehaviour:
   walkSounds: []
   walkAudioSource: {fileID: 0}
   walkSoundInterval: 0.5
-  jumpSounds: []
+  jumpSounds:
+  - {fileID: 8300000, guid: 8aaed2cede948184ba06fbebfd498bdf, type: 3}
+  - {fileID: 8300000, guid: ffe11ab481bddb44ab74e57f7b2c062a, type: 3}
+  - {fileID: 8300000, guid: a39434eb069f7074d9ea59c6f1468a1b, type: 3}
+  - {fileID: 8300000, guid: 0cbff1a251d8cc2459e49d719d9d7aa2, type: 3}
   jumpAudioSource: {fileID: 0}
   animator: {fileID: 8905095750400883298}
 --- !u!50 &1638690765897404634

@@ -9,6 +9,10 @@ public class Lever : Interactable
     [SerializeField] private bool isToggleable = true;
 
     [Space(10)]
+    [SerializeField] private AudioClip[] switchSounds; // ћассив случайных звуков
+    [SerializeField] private AudioSource audioSource;   // AudioSource дл€ воспроизведени€
+
+    [Space(10)]
     [SerializeField] private UnityEvent onActivate;
     [SerializeField] private UnityEvent onDeactivate;
 
@@ -20,6 +24,13 @@ public class Lever : Interactable
         spriteRenderer = GetComponent<SpriteRenderer>();
         isActive = startActive;
         UpdateVisual();
+
+        // »нициализаци€ AudioSource, если не назначен
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
     }
 
     public override void Interact()
@@ -36,6 +47,7 @@ public class Lever : Interactable
         }
 
         UpdateVisual();
+        PlayRandomSound(); // ¬оспроизвести случайный звук
 
         if (isActive)
         {
@@ -50,6 +62,19 @@ public class Lever : Interactable
     private void UpdateVisual()
     {
         spriteRenderer.sprite = isActive ? activeSprite : inactiveSprite;
+    }
+
+    private void PlayRandomSound()
+    {
+        if (switchSounds.Length > 0 && audioSource != null)
+        {
+            AudioClip clip = switchSounds[Random.Range(0, switchSounds.Length)];
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning("«вуки рычага не назначены или AudioSource отсутствует!");
+        }
     }
 
     protected override void OnEnterRange()

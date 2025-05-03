@@ -137,6 +137,10 @@ MonoBehaviour:
   inactiveSprite: {fileID: 0}
   startActive: 0
   isToggleable: 1
+  switchSounds:
+  - {fileID: 8300000, guid: 2146a1d6c551a5341a566a805039f66a, type: 3}
+  - {fileID: 8300000, guid: 6c2eeb02ddae7b549bb98a33020700d9, type: 3}
+  audioSource: {fileID: 0}
   onActivate:
     m_PersistentCalls:
       m_Calls:
