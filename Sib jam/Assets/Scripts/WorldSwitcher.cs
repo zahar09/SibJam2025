@@ -9,7 +9,22 @@ public class WorldSwitcher : MonoBehaviour
     [SerializeField] private Image fadePanel; // Ссылка на UI-затемнение
     [SerializeField] private float fadeDuration = 0.5f; // Время анимации
 
+    [Header("Звуки переключения")]
+    [SerializeField] private AudioClip[] switchSounds; // Массив звуков переключения
+    [SerializeField] private AudioSource switchAudioSource; // Отдельный AudioSource для переключения
+    //[SerializeField] private float switchSoundVolume = 0.7f; // Громкость звука
+
     private bool isWorld1Active = true;
+
+    private void Awake()
+    {
+        // Инициализация AudioSource для переключения
+        if (switchAudioSource == null)
+        {
+            switchAudioSource = gameObject.AddComponent<AudioSource>();
+            switchAudioSource.playOnAwake = false;
+        }
+    }
 
     private void Start()
     {
@@ -41,7 +56,10 @@ public class WorldSwitcher : MonoBehaviour
         world1.SetActive(isWorld1Active);
         world2.SetActive(!isWorld1Active);
 
-        // 3. Показать экран
+        // 3. Воспроизвести случайный звук переключения
+        PlayRandomSwitchSound();
+
+        // 4. Показать экран
         yield return FadeScreen(0f);
     }
 
@@ -59,5 +77,18 @@ public class WorldSwitcher : MonoBehaviour
         }
 
         fadePanel.color = new Color(0, 0, 0, targetAlpha);
+    }
+
+    private void PlayRandomSwitchSound()
+    {
+        if (switchSounds.Length > 0 && switchAudioSource != null)
+        {
+            AudioClip clip = switchSounds[Random.Range(0, switchSounds.Length)];
+            switchAudioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning("Звуки переключения не назначены или AudioSource отсутствует!");
+        }
     }
 }
