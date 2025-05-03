@@ -216,6 +216,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheckRadius: 0.2
+  walkSounds: []
+  walkAudioSource: {fileID: 0}
+  walkSoundInterval: 0.5
+  jumpSounds: []
+  jumpAudioSource: {fileID: 0}
 --- !u!50 &1638690765897404634
 Rigidbody2D:
   serializedVersion: 4
