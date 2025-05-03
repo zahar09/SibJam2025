@@ -26,7 +26,10 @@ public class Ladder : Interactable
     {
         if (playerRb == null) return;
 
-        float vertical = Input.GetAxisRaw("Vertical");
+        // Убираем зависимость от ввода игрока
+        float vertical = 1f; // всегда вверх
+
+        // Устанавливаем вертикальную скорость
         playerRb.velocity = new Vector2(0, vertical * climbSpeed);
     }
 

@@ -1,0 +1,68 @@
+
+Main_character_parts.png
+size: 1780,1338
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Nose
+  rotate: false
+  xy: 1151, 404
+  size: 512, 511
+  orig: 512, 511
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 2
+  size: 578, 737
+  orig: 578, 776
+  offset: 0, 39
+  index: -1
+left_hand
+  rotate: true
+  xy: 1178, 917
+  size: 419, 600
+  orig: 419, 600
+  offset: 0, 0
+  index: -1
+left_leg
+  rotate: true
+  xy: 2, 1058
+  size: 278, 596
+  orig: 278, 596
+  offset: 0, 0
+  index: -1
+right_hand
+  rotate: true
+  xy: 539, 582
+  size: 448, 610
+  orig: 448, 610
+  offset: 0, 0
+  index: -1
+right_leg
+  rotate: true
+  xy: 600, 1032
+  size: 304, 576
+  orig: 304, 576
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 2, 626
+  size: 535, 430
+  orig: 535, 430
+  offset: 0, 0
+  index: -1
+
+Main_character_parts2.png
+size: 1738,1231
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+head
+  rotate: false
+  xy: 2, 2
+  size: 1734, 1227
+  orig: 1734, 1488
+  offset: 0, 168
+  index: -1

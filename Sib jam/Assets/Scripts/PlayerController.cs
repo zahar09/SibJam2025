@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private float lastWalkSoundTime;
     private bool wasGroundedLastFrame;
 
+    // Хэши для анимаций
     private static readonly int IdleHash = Animator.StringToHash("idle");
     private static readonly int RunHash = Animator.StringToHash("run");
     private static readonly int JumpHash = Animator.StringToHash("jump");
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); // Получаем Animator
+       // animator = GetComponent<Animator>();
 
         // Инициализация AudioSource для ходьбы
         if (walkAudioSource == null)
@@ -59,12 +60,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isClimbing)
         {
-            currentLadder.Climb();
+            currentLadder.Climb(); // Автоматический подъем по лестнице
         }
         else
         {
             HandleMovement();
 
+            // Прыжок при нажатии Space
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 TryJump();
@@ -80,12 +82,14 @@ public class PlayerController : MonoBehaviour
         if (isClimbing)
         {
             animator.SetBool(ClimbHash, true);
+            animator.SetBool(RunHash, false);
+            animator.SetBool(IdleHash, false);
         }
         else
         {
             animator.SetBool(ClimbHash, false);
 
-            // Анимация прыжка
+            // Анимация прыжка (только если не на земле и не лазаем)
             if (rb.velocity.y > 0.1f)
             {
                 animator.SetTrigger(JumpHash);
@@ -97,7 +101,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(IdleHash, speedX <= 0.1f);
         }
 
-        // Проверка ходьбы для звука
+        // Звук ходьбы
         if (!isClimbing && isGrounded && Mathf.Abs(rb.velocity.x) > 0.1f)
         {
             if (Time.time - lastWalkSoundTime > walkSoundInterval)
@@ -109,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
         wasGroundedLastFrame = isGrounded;
 
+        // Отладка для проверки касания земли
         Debug.DrawRay(groundCheck.position, Vector2.down * groundCheckRadius,
             isGrounded ? Color.green : Color.red);
     }
@@ -117,6 +122,12 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+
+        // Поворот персонажа
+        if (horizontal != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(horizontal), 1f, 1f);
+        }
     }
 
     private void TryJump()
@@ -128,7 +139,7 @@ public class PlayerController : MonoBehaviour
             PlayRandomJumpSound();
             wasGroundedLastFrame = true;
 
-            // Сброс триггера прыжка через 0.5 секунды (настройте под длительность анимации)
+            // Сброс триггера прыжка через 0.5 секунды
             Invoke(nameof(OnJumpAnimationEnd), 0.5f);
         }
         else if (wasGroundedLastFrame)
