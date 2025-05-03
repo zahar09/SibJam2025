@@ -686,8 +686,10 @@ MonoBehaviour:
   world2: {fileID: 1851730517}
   fadePanel: {fileID: 175725657}
   fadeDuration: 0.5
-  switchSounds: []
-  switchAudioSource: {fileID: 0}
+  switchSounds:
+  - {fileID: 8300000, guid: 7b7cd39533e59fa4395b973f6f4dd8eb, type: 3}
+  - {fileID: 8300000, guid: ad3c4efba97c4a24a8ac5c15b16955ad, type: 3}
+  switchAudioSource: {fileID: 885159854}
 --- !u!4 &535832195
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,6 +1409,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &885159854 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 836431344325434353, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 885159850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &891493848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6898380596262255862, guid: 0497b7270630fd944862328f9bb42027, type: 3}
@@ -3015,3 +3022,6 @@ SceneRoots:
   - {fileID: 535832195}
   - {fileID: 1151550218}
   - {fileID: 410666861}
+  - {fileID: 885159850}
+  - {fileID: 810833271}
+  - {fileID: 958786308}

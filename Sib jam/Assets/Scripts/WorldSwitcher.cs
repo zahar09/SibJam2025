@@ -47,17 +47,17 @@ public class WorldSwitcher : MonoBehaviour
 
     private IEnumerator SwitchWorldWithFade()
     {
-        // 1. Затемнить экран
+        // 1. Воспроизвести случайный звук переключения
+        PlayRandomSwitchSound();
+
+        // 2. Затемнить экран
         yield return FadeScreen(1f);
 
-        // 2. Переключить миры
+        // 3. Переключить миры
         isWorld1Active = !isWorld1Active;
 
         world1.SetActive(isWorld1Active);
         world2.SetActive(!isWorld1Active);
-
-        // 3. Воспроизвести случайный звук переключения
-        PlayRandomSwitchSound();
 
         // 4. Показать экран
         yield return FadeScreen(0f);
