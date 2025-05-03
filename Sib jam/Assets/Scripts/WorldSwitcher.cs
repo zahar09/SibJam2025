@@ -6,23 +6,45 @@ public class WorldSwitcher : MonoBehaviour
 {
     [SerializeField] private GameObject world1;
     [SerializeField] private GameObject world2;
-    [SerializeField] private Image fadePanel; // Ссылка на UI-затемнение
+    [SerializeField] private Image fadePanel; // UI-затемнение
     [SerializeField] private float fadeDuration = 0.5f; // Время анимации
 
     [Header("Звуки переключения")]
-    [SerializeField] private AudioClip[] switchSounds; // Массив звуков переключения
-    [SerializeField] private AudioSource switchAudioSource; // Отдельный AudioSource для переключения
-    //[SerializeField] private float switchSoundVolume = 0.7f; // Громкость звука
+    [SerializeField] private AudioClip[] switchSounds;
+    [SerializeField] private AudioSource switchAudioSource;
+
+    [Header("Музыка миров")]
+    [SerializeField] private AudioClip musicWorld1;
+    [SerializeField] private AudioClip musicWorld2;
+    [SerializeField] private AudioSource musicAudioSource1;
+    [SerializeField] private AudioSource musicAudioSource2;
+
+    [SerializeField] private float musicFadeDuration = 0.5f; // Плавность смены музыки
 
     private bool isWorld1Active = true;
 
     private void Awake()
     {
-        // Инициализация AudioSource для переключения
+        // Инициализация AudioSource для звука переключения
         if (switchAudioSource == null)
         {
             switchAudioSource = gameObject.AddComponent<AudioSource>();
             switchAudioSource.playOnAwake = false;
+        }
+
+        // Инициализация AudioSource для музыки
+        if (musicAudioSource1 == null)
+        {
+            musicAudioSource1 = gameObject.AddComponent<AudioSource>();
+            musicAudioSource1.playOnAwake = false;
+            musicAudioSource1.loop = true;
+        }
+
+        if (musicAudioSource2 == null)
+        {
+            musicAudioSource2 = gameObject.AddComponent<AudioSource>();
+            musicAudioSource2.playOnAwake = false;
+            musicAudioSource2.loop = true;
         }
     }
 
@@ -35,6 +57,20 @@ public class WorldSwitcher : MonoBehaviour
         }
 
         world2.SetActive(false);
+
+        // Включаем музыку текущего мира
+        if (musicWorld1 != null)
+        {
+            musicAudioSource1.clip = musicWorld1;
+            musicAudioSource1.volume = 1f;
+            musicAudioSource1.Play();
+        }
+
+        if (musicWorld2 != null)
+        {
+            musicAudioSource2.clip = musicWorld2;
+            musicAudioSource2.volume = 0f;
+        }
     }
 
     private void Update()
@@ -47,19 +83,25 @@ public class WorldSwitcher : MonoBehaviour
 
     private IEnumerator SwitchWorldWithFade()
     {
-        // 1. Воспроизвести случайный звук переключения
+        // 1. Воспроизвести звук переключения
         PlayRandomSwitchSound();
 
-        // 2. Затемнить экран
-        yield return FadeScreen(1f);
+        // 2. Начать фейд-аут текущей музыки
+        yield return FadeOutMusic();
 
-        // 3. Переключить миры
-        isWorld1Active = !isWorld1Active;
+        // 3. Затемнить экран
+        yield return FadeScreen(1f);
 
         world1.SetActive(isWorld1Active);
         world2.SetActive(!isWorld1Active);
 
-        // 4. Показать экран
+        // 4. Включить новую музыку с фейд-ин
+        yield return FadeInMusic();
+
+        // 5. Переключить миры
+        isWorld1Active = !isWorld1Active;
+
+        // 6. Показать экран
         yield return FadeScreen(0f);
     }
 
@@ -77,6 +119,82 @@ public class WorldSwitcher : MonoBehaviour
         }
 
         fadePanel.color = new Color(0, 0, 0, targetAlpha);
+    }
+
+    private IEnumerator FadeOutMusic()
+    {
+        print(isWorld1Active);
+        // Определяем, какой AudioSource сейчас активен
+        AudioSource currentMusic = isWorld1Active ? musicAudioSource1 : musicAudioSource2;
+
+        float elapsed = 0f;
+        float startVolume = currentMusic.volume;
+
+        while (elapsed < musicFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float volume = Mathf.Lerp(startVolume, 0f, elapsed / musicFadeDuration);
+            currentMusic.volume = volume;
+            yield return null;
+        }
+
+        currentMusic.Stop(); // Явно останавливаем старую музыку
+        currentMusic.volume = 1f; // Сбрасываем громкость
+    }
+
+    private IEnumerator FadeInMusic()
+    {
+        print(isWorld1Active);
+        // Определяем, какую музыку включать
+        AudioSource targetMusic = isWorld1Active ? musicAudioSource2 : musicAudioSource1;
+        AudioClip newClip = isWorld1Active ? musicWorld2 : musicWorld1;
+
+        // Проверяем, что клип назначен
+        if (newClip == null)
+        {
+            Debug.LogWarning($"Музыка для {(isWorld1Active ? "мира 2" : "мира 1")} не назначена!");
+            yield break;
+        }
+
+        // Если клип изменился — обновляем
+        if (targetMusic.clip != newClip)
+        {
+            targetMusic.clip = newClip;
+        }
+
+        // Явно останавливаем все музыки перед включением новой
+        StopAllMusic();
+
+        // Всегда сбрасываем громкость перед воспроизведением
+        targetMusic.volume = 0f;
+        targetMusic.Play(); // Включаем новую музыку
+
+        float elapsed = 0f;
+        while (elapsed < musicFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float volume = Mathf.Lerp(0f, 1f, elapsed / musicFadeDuration);
+            targetMusic.volume = volume;
+            yield return null;
+        }
+
+        targetMusic.volume = 1f;
+    }
+
+    // Явно останавливаем все музыки
+    private void StopAllMusic()
+    {
+        if (musicAudioSource1 != null && musicAudioSource1.isPlaying)
+        {
+            musicAudioSource1.Stop();
+            musicAudioSource1.volume = 1f;
+        }
+
+        if (musicAudioSource2 != null && musicAudioSource2.isPlaying)
+        {
+            musicAudioSource2.Stop();
+            musicAudioSource2.volume = 1f;
+        }
     }
 
     private void PlayRandomSwitchSound()

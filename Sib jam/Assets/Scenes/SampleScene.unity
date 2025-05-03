@@ -690,6 +690,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7b7cd39533e59fa4395b973f6f4dd8eb, type: 3}
   - {fileID: 8300000, guid: ad3c4efba97c4a24a8ac5c15b16955ad, type: 3}
   switchAudioSource: {fileID: 885159854}
+  musicWorld1: {fileID: 8300000, guid: 1f8656dd9dfb8d3439de1ebbbbfb24e8, type: 3}
+  musicWorld2: {fileID: 8300000, guid: 91be5b38ccfade145ba86e08016a59ea, type: 3}
+  musicAudioSource1: {fileID: 2139980377}
+  musicAudioSource2: {fileID: 1473592658}
+  musicFadeDuration: 0.5
 --- !u!4 &535832195
 Transform:
   m_ObjectHideFlags: 0
@@ -1868,6 +1873,11 @@ RectTransform:
   m_AnchoredPosition: {x: 50.000027, y: 50.000004}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &1473592658 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5240009466507963391, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 885159850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1530345730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6370867484038416346, guid: b6ebee71cbd8f504a9f29c913b634d6c, type: 3}
@@ -2501,6 +2511,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &2139980377 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4348201508546138195, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 885159850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &469987532950376189
 PrefabInstance:
   m_ObjectHideFlags: 0
