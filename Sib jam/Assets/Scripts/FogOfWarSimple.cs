@@ -27,6 +27,7 @@ public class FogOfWarSimple : MonoBehaviour
     private void CreateRevealCircle()
     {
         GameObject circle = Instantiate(fogCirclePrefab, player.position, Quaternion.identity, transform);
+        Destroy(circle, 30f);
         circle.transform.localScale = Vector3.zero; // Начальный масштаб 0
         circle.GetComponent<FogCircleAnimation>()?.StartAnimation(revealRadius, scaleDuration);
     }

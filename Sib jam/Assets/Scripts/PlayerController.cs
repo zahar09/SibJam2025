@@ -47,26 +47,26 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
 
-        // Инициализация AudioSource для ходьбы
-        if (footStepsSource == null)
-        {
-            footStepsSource = gameObject.AddComponent<AudioSource>();
-            footStepsSource.playOnAwake = false;
-        }
+        //// Инициализация AudioSource для ходьбы
+        //if (footStepsSource == null)
+        //{
+        //    footStepsSource = gameObject.AddComponent<AudioSource>();
+        //    footStepsSource.playOnAwake = false;
+        //}
 
-        // Инициализация AudioSource для прыжка
-        if (jumpAudioSource == null)
-        {
-            jumpAudioSource = gameObject.AddComponent<AudioSource>();
-            jumpAudioSource.playOnAwake = false;
-        }
+        //// Инициализация AudioSource для прыжка
+        //if (jumpAudioSource == null)
+        //{
+        //    jumpAudioSource = gameObject.AddComponent<AudioSource>();
+        //    jumpAudioSource.playOnAwake = false;
+        //}
 
-        // Инициализация AudioSource для приземления
-        if (landingAudioSource == null)
-        {
-            landingAudioSource = gameObject.AddComponent<AudioSource>();
-            landingAudioSource.playOnAwake = false;
-        }
+        //// Инициализация AudioSource для приземления
+        //if (landingAudioSource == null)
+        //{
+        //    landingAudioSource = gameObject.AddComponent<AudioSource>();
+        //    landingAudioSource.playOnAwake = false;
+        //}
 
         wasGroundedLastFrame = IsGrounded(); // Инициализируем текущим состоянием
     }
