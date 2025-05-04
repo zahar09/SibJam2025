@@ -2594,6 +2594,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
+--- !u!82 &1279433341 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5465101979649265217, guid: 3fed18d46ef204143889cb878d76c648, type: 3}
+  m_PrefabInstance: {fileID: 1626188479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1382429286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3153412506844300277, guid: 1bab5b84236d59c45bce040d9299a165, type: 3}
@@ -4454,9 +4459,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 933558578}
     - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1279433341}
+    - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
       propertyPath: fadeDuration
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
+      propertyPath: deathSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
+      propertyPath: deathSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b62d30551ef632443b50dea6f8fc6368, type: 3}
+    - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
+      propertyPath: deathSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a766d3ecb3776af45b66239600246728, type: 3}
+    - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
+      propertyPath: deathSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9dbc094d724e4ef45953b97e5519f243, type: 3}
+    - target: {fileID: 490473901362667619, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
+      propertyPath: deathSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a0b4cbf2059a614e8a8913280bd0cfb, type: 3}
     - target: {fileID: 1442097009493836045, guid: ff7ae0a364fd9a943ab06889ffbdb678, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.359207

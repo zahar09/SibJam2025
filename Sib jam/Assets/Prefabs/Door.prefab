@@ -189,6 +189,13 @@ MonoBehaviour:
   closedSprite: {fileID: 21300000, guid: 168278e8b4757e54fa8355abd137fa93, type: 3}
   teleportTarget: {fileID: 4393862119915807676}
   isOpen: 0
+  openSounds:
+  - {fileID: 8300000, guid: 89f3c4311af076349907c94a9ae99d8a, type: 3}
+  - {fileID: 8300000, guid: 17b3f419ab1f6fa4385384716315d0e2, type: 3}
+  closeSounds:
+  - {fileID: 8300000, guid: 89f3c4311af076349907c94a9ae99d8a, type: 3}
+  - {fileID: 8300000, guid: 17b3f419ab1f6fa4385384716315d0e2, type: 3}
+  audioSource: {fileID: 0}
 --- !u!61 &8918880600789170643
 BoxCollider2D:
   m_ObjectHideFlags: 0
