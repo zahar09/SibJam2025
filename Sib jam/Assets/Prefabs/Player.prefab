@@ -94,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 86e51586d13f2824aa5862b705eb1a39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -316,8 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f07ff99998644649bb254b704fccdfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  jumpForce: 4
+  moveSpeed: 24
+  jumpForce: 40
   groundCheck: {fileID: 2611446773007429132}
   groundLayer:
     serializedVersion: 2
@@ -332,6 +332,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a39434eb069f7074d9ea59c6f1468a1b, type: 3}
   - {fileID: 8300000, guid: 0cbff1a251d8cc2459e49d719d9d7aa2, type: 3}
   jumpAudioSource: {fileID: 0}
+  landingSounds:
+  - {fileID: 8300000, guid: 43cbcea50d802324db6e3ee00313ab28, type: 3}
+  - {fileID: 8300000, guid: c0df9e127fd5f734f869635c77cc41bc, type: 3}
+  - {fileID: 8300000, guid: 251548a6be090144d855057795341c95, type: 3}
+  - {fileID: 8300000, guid: 36ff058556baca2469a301666a26cbfe, type: 3}
+  landingAudioSource: {fileID: 0}
   animator: {fileID: 8905095750400883298}
 --- !u!50 &1638690765897404634
 Rigidbody2D:
@@ -348,7 +354,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

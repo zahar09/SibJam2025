@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] jumpSounds;
     [SerializeField] private AudioSource jumpAudioSource;
 
+    // Звуки приземления
+    [Header("Звуки приземления")]
+    [SerializeField] private AudioClip[] landingSounds;
+    [SerializeField] private AudioSource landingAudioSource;
+
     // Анимации
     [Header("Анимации")]
     [SerializeField] private Animator animator;
@@ -41,7 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         startScaleX = transform.localScale.x;
         rb = GetComponent<Rigidbody2D>();
-       // animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
         // Инициализация AudioSource для ходьбы
         if (walkAudioSource == null)
@@ -56,6 +61,15 @@ public class PlayerController : MonoBehaviour
             jumpAudioSource = gameObject.AddComponent<AudioSource>();
             jumpAudioSource.playOnAwake = false;
         }
+
+        // Инициализация AudioSource для приземления
+        if (landingAudioSource == null)
+        {
+            landingAudioSource = gameObject.AddComponent<AudioSource>();
+            landingAudioSource.playOnAwake = false;
+        }
+
+        wasGroundedLastFrame = IsGrounded(); // Инициализируем текущим состоянием
     }
 
     private void Update()
@@ -80,6 +94,12 @@ public class PlayerController : MonoBehaviour
     {
         bool isGrounded = IsGrounded();
 
+        // Проверка приземления
+        if (!wasGroundedLastFrame && isGrounded)
+        {
+            PlayRandomLandingSound(); // Воспроизводим звук приземления
+        }
+
         // Управление анимациями
         if (isClimbing)
         {
@@ -91,7 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool(ClimbHash, false);
 
-            // Анимация прыжка (только если не на земле и не лазаем)
+            // Анимация прыжка
             if (rb.velocity.y > 0.1f)
             {
                 //animator.SetTrigger(JumpHash);
@@ -128,8 +148,7 @@ public class PlayerController : MonoBehaviour
         // Поворот персонажа
         if (horizontal != 0)
         {
-
-            transform.localScale = new Vector3(Mathf.Sign(horizontal)*startScaleX, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(Mathf.Sign(horizontal) * startScaleX, transform.localScale.y, transform.localScale.z);
         }
     }
 
@@ -142,7 +161,7 @@ public class PlayerController : MonoBehaviour
             PlayRandomJumpSound();
             wasGroundedLastFrame = true;
 
-            // Сброс триггера прыжка через 0.5 секунды
+            // Сброс триггера прыжка
             Invoke(nameof(OnJumpAnimationEnd), 0.5f);
         }
         else if (wasGroundedLastFrame)
@@ -194,6 +213,19 @@ public class PlayerController : MonoBehaviour
         {
             AudioClip clip = jumpSounds[Random.Range(0, jumpSounds.Length)];
             jumpAudioSource.PlayOneShot(clip);
+        }
+    }
+
+    private void PlayRandomLandingSound()
+    {
+        if (landingSounds.Length > 0 && landingAudioSource != null)
+        {
+            AudioClip clip = landingSounds[Random.Range(0, landingSounds.Length)];
+            landingAudioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning("Звуки приземления не назначены или AudioSource отсутствует!");
         }
     }
 }
