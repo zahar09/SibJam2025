@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = 1;
+            rb.gravityScale = 8;
             rb.velocity = Vector2.zero;
         }
     }

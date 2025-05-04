@@ -76,7 +76,7 @@ public class CutsceneManager : MonoBehaviour
         yield return FadeToBlack();
 
         // 7. Переход к следующей сцене
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level 2");
     }
 
     private void PlayRandomSound(AudioClip[] clips)
