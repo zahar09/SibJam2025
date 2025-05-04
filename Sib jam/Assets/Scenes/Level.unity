@@ -1020,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7137391000825894070, guid: fe2fa4b7244dcf342abfce2d0f407b85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
