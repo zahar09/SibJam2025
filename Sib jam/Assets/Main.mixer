@@ -310,8 +310,14 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 0c901b089e8041a4da00188a22fafe23
     name: Ambient
+  - guid: 278636bfe3126644fae560b5bcc8922d
+    name: LevelReal
+  - guid: d3157ce472526e947a756dbf7369a44e
+    name: LevelVirtual
   - guid: 632dd8c66d7f10f42879d1721c5696bc
     name: Master
+  - guid: aeb31bb464f1f1843b3676962f8bcc8e
+    name: Menu
   - guid: 53d9aa92c8a270e4283fcf454d8886a3
     name: Music
   - guid: 2df9173eab47e9b45938eec42673a504
