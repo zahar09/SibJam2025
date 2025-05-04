@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8461665535875646041}
   - component: {fileID: 8905095750400883298}
   - component: {fileID: 5077162219900370174}
+  - component: {fileID: 9072317696484848068}
   m_Layer: 0
   m_Name: PlayerAnimObj
   m_TagString: Untagged
@@ -106,6 +107,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9072317696484848068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215448822437764044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb36832a3a28284b997a759bc77345e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5270674323678411692}
 --- !u!1 &2796864626143983650
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +310,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.49271786, y: 2.22, z: -0.077991806}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20.052166, y: 20.052166, z: 20.052166}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8461665535875646041}
@@ -323,9 +337,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheckRadius: 0.2
-  walkSounds: []
-  walkAudioSource: {fileID: 0}
-  walkSoundInterval: 0.5
+  footStepsSounds:
+  - {fileID: 8300000, guid: eac6c2e3dff5c7e4fb0994b5842e4bd5, type: 3}
+  - {fileID: 8300000, guid: 705ed4062f2dd81479ca8f2c48d57f5f, type: 3}
+  - {fileID: 8300000, guid: cfe24fbc778e4a049aea271d27f0ed50, type: 3}
+  - {fileID: 8300000, guid: 383f1aacbf6293f4e9fcdb01a304a785, type: 3}
+  - {fileID: 8300000, guid: 240d9df99e1553240b58c5a00f52fe5a, type: 3}
+  - {fileID: 8300000, guid: 6169f4804f229d64f8eac467d638672b, type: 3}
+  - {fileID: 8300000, guid: 59af31348d382784884a5b87e15486f2, type: 3}
+  - {fileID: 8300000, guid: 73fb01c39ebcbc741bdc4df279462b6f, type: 3}
+  - {fileID: 8300000, guid: 3dad0448edc692942bfdc018ae12af4a, type: 3}
+  - {fileID: 8300000, guid: 363c584044bffc941b67eb7bef356362, type: 3}
+  - {fileID: 8300000, guid: 0a2ccfa90c592b84aae85d955f42febd, type: 3}
+  - {fileID: 8300000, guid: 8f8b2a9e8b60c77458e0ab860999f63d, type: 3}
+  footStepsSource: {fileID: 0}
   jumpSounds:
   - {fileID: 8300000, guid: 8aaed2cede948184ba06fbebfd498bdf, type: 3}
   - {fileID: 8300000, guid: ffe11ab481bddb44ab74e57f7b2c062a, type: 3}

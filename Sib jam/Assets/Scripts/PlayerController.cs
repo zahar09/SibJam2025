@@ -10,9 +10,8 @@ public class PlayerController : MonoBehaviour
 
     // Звуки ходьбы
     [Header("Звуки ходьбы")]
-    [SerializeField] private AudioClip[] walkSounds;
-    [SerializeField] private AudioSource walkAudioSource;
-    [SerializeField] private float walkSoundInterval = 0.5f;
+    [SerializeField] private AudioClip[] footStepsSounds;
+    [SerializeField] private AudioSource footStepsSource;
 
     // Звуки прыжка
     [Header("Звуки прыжка")]
@@ -49,10 +48,10 @@ public class PlayerController : MonoBehaviour
         //animator = GetComponent<Animator>();
 
         // Инициализация AudioSource для ходьбы
-        if (walkAudioSource == null)
+        if (footStepsSource == null)
         {
-            walkAudioSource = gameObject.AddComponent<AudioSource>();
-            walkAudioSource.playOnAwake = false;
+            footStepsSource = gameObject.AddComponent<AudioSource>();
+            footStepsSource.playOnAwake = false;
         }
 
         // Инициализация AudioSource для прыжка
@@ -123,15 +122,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(IdleHash, speedX <= 0.1f);
         }
 
-        // Звук ходьбы
-        if (!isClimbing && isGrounded && Mathf.Abs(rb.velocity.x) > 0.1f)
-        {
-            if (Time.time - lastWalkSoundTime > walkSoundInterval)
-            {
-                PlayRandomWalkSound();
-                lastWalkSoundTime = Time.time;
-            }
-        }
+        //// Звук ходьбы
+        //if (!isClimbing && isGrounded && Mathf.Abs(rb.velocity.x) > 0.1f)
+        //{
+        //    if (Time.time - lastWalkSoundTime > walkSoundInterval)
+        //    {
+        //        PlayRandomWalkSound();
+        //        lastWalkSoundTime = Time.time;
+        //    }
+        //}
 
         wasGroundedLastFrame = isGrounded;
 
@@ -198,14 +197,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PlayRandomWalkSound()
-    {
-        if (walkSounds.Length > 0 && walkAudioSource != null)
-        {
-            AudioClip clip = walkSounds[Random.Range(0, walkSounds.Length)];
-            walkAudioSource.PlayOneShot(clip);
-        }
-    }
+    //private void PlayRandomWalkSound()
+    //{
+    //    if (walkSounds.Length > 0 && walkAudioSource != null)
+    //    {
+    //        AudioClip clip = walkSounds[Random.Range(0, walkSounds.Length)];
+    //        walkAudioSource.PlayOneShot(clip);
+    //    }
+    //}
 
     private void PlayRandomJumpSound()
     {
@@ -226,6 +225,19 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.LogWarning("Звуки приземления не назначены или AudioSource отсутствует!");
+        }
+    }
+    public void PlayRandomFootStepsSound()
+    {
+        if(!wasGroundedLastFrame) return;
+        if (footStepsSounds.Length > 0 && footStepsSource != null)
+        {
+            AudioClip clip = footStepsSounds[Random.Range(0, footStepsSounds.Length)];
+            footStepsSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning("Звуки шагов не назначены или AudioSource отсутствует!");
         }
     }
 }
