@@ -311,7 +311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 869922641891007475, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: spacing
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1216623546836846014, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_IsActive
@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292270171017212922, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_UiScaleMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3292270171017212922, guid: f0930b4c9903cca4daf7167db012cad9, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -1022,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7137391000825894070, guid: fe2fa4b7244dcf342abfce2d0f407b85, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2616,7 +2616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1448527695
 Transform:
   m_ObjectHideFlags: 0

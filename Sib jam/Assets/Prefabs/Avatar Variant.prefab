@@ -28,17 +28,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Avatar Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7885543429754737068, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48120338
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885543429754737068, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.08093163
+      objectReference: {fileID: 0}
     - target: {fileID: 8864507386879800360, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.49271786
+      value: -174.2
       objectReference: {fileID: 0}
     - target: {fileID: 8864507386879800360, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.22
+      value: -137.7
       objectReference: {fileID: 0}
     - target: {fileID: 8864507386879800360, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.077991806
+      value: 0.13958815
       objectReference: {fileID: 0}
     - target: {fileID: 8864507386879800360, guid: bd106d82f8a10f54aae60a3fddb6e4bd, type: 3}
       propertyPath: m_LocalRotation.w
