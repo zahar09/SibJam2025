@@ -75,6 +75,10 @@ public class PlayerController : MonoBehaviour
     {
         if (isClimbing)
         {
+            if (IsGrounded() && currentLadder.GetDiration() == -1)
+            {
+                currentLadder.Interact();
+            }
             currentLadder.Climb(); // Автоматический подъем по лестнице
         }
         else
