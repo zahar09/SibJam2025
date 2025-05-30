@@ -43,7 +43,7 @@ public class DeadlyZone : MonoBehaviour
     private IEnumerator HandleDeathSequence()
     {
         // 1. Проигрываем случайный звук смерти
-        PlayRandomDeathSound();
+        //PlayRandomDeathSound();
         player.Die();
 
         // 2. Затемнение экрана
