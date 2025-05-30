@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +25,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] landingSounds;
     [SerializeField] private AudioSource landingAudioSource;
 
+    // Звуки смерти
+    [Header("Звуки смерти")]
+    [SerializeField] private AudioClip[] dieSounds;
+    [SerializeField] private AudioSource dieAudioSource;
+
+    [Header("Звуки смерти")]
+    [SerializeField] private AudioClip[] deathSounds; // Массив звуков смерти
+    [SerializeField] private AudioSource audioSource; // AudioSource для воспроизведения
+
     // Анимации
     [Header("Анимации")]
     [SerializeField] private Animator animator;
@@ -40,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int RunHash = Animator.StringToHash("run");
     private static readonly int JumpHash = Animator.StringToHash("jump");
     private static readonly int ClimbHash = Animator.StringToHash("climb");
+    private static readonly int DieHash = Animator.StringToHash("die");
 
     private void Awake()
     {
@@ -201,6 +213,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Die()
+    {
+        //PlayRandomDieSound();
+        PlayRandomDeathSound();
+    }
+    
+
     //private void PlayRandomWalkSound()
     //{
     //    if (walkSounds.Length > 0 && walkAudioSource != null)
@@ -231,6 +250,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning("Звуки приземления не назначены или AudioSource отсутствует!");
         }
     }
+
     public void PlayRandomFootStepsSound()
     {
         if(!wasGroundedLastFrame) return;
@@ -242,6 +262,19 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.LogWarning("Звуки шагов не назначены или AudioSource отсутствует!");
+        }
+    }
+
+    private void PlayRandomDeathSound()
+    {
+        if (deathSounds.Length > 0 && audioSource != null)
+        {
+            AudioClip clip = deathSounds[Random.Range(0, deathSounds.Length)];
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning("Звуки смерти не назначены или AudioSource отсутствует!");
         }
     }
 }

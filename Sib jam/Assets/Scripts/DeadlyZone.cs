@@ -15,6 +15,8 @@ public class DeadlyZone : MonoBehaviour
     [SerializeField] private AudioSource audioSource; // AudioSource для воспроизведения
     [SerializeField] private float deathSoundVolume = 0.7f; // Громкость звука
 
+    private PlayerController player;
+
     private bool hasPlayerEntered = false;
 
     private void Awake()
@@ -30,9 +32,10 @@ public class DeadlyZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Проверяем, вошел ли игрок в зону
-        if (other.CompareTag("Player") && !hasPlayerEntered)
+        if (other.GetComponent<PlayerController>() && !hasPlayerEntered)
         {
             hasPlayerEntered = true;
+            player = other.GetComponent<PlayerController>();
             StartCoroutine(HandleDeathSequence());
         }
     }
@@ -41,6 +44,7 @@ public class DeadlyZone : MonoBehaviour
     {
         // 1. Проигрываем случайный звук смерти
         PlayRandomDeathSound();
+        player.Die();
 
         // 2. Затемнение экрана
         yield return FadeScreen(fadePanel, fadeColor, fadeDuration);
