@@ -217,6 +217,7 @@ public class PlayerController : MonoBehaviour
     {
         //PlayRandomDieSound();
         PlayRandomDeathSound();
+        animator.SetTrigger(DieHash);
     }
     
 
