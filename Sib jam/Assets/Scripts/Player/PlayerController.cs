@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] landingSounds;
     [SerializeField] private AudioSource landingAudioSource;
 
-    // Звуки смерти
-    [Header("Звуки смерти")]
-    [SerializeField] private AudioClip[] dieSounds;
-    [SerializeField] private AudioSource dieAudioSource;
+    //// Звуки смерти
+    //[Header("Звуки смерти")]
+    //[SerializeField] private AudioClip[] dieSounds;
+    //[SerializeField] private AudioSource dieAudioSource;
 
     [Header("Звуки смерти")]
     [SerializeField] private AudioClip[] deathSounds; // Массив звуков смерти

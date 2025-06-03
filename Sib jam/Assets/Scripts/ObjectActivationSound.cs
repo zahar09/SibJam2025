@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ObjectActivationSound : MonoBehaviour
+public class Platform : MonoBehaviour
 {
     [Header("Звуки появления")]
     [SerializeField] private AudioClip[] appearSounds;
@@ -10,6 +10,8 @@ public class ObjectActivationSound : MonoBehaviour
     [Header("Звуки исчезновения")]
     [SerializeField] private AudioClip[] disappearSounds;
     [SerializeField] private AudioSource disappearAudioSource;
+
+    private bool isCanPlaySound;
     //[SerializeField] private float disappearVolume = 0.7f;
 
     private void Awake()
@@ -29,17 +31,35 @@ public class ObjectActivationSound : MonoBehaviour
         }
     }
 
+
+    public void SetActivePlatform(bool active)
+    {
+        isCanPlaySound = true;
+        gameObject.SetActive(active);
+    }
+
+
     private void OnEnable()
     {
-        PlayRandomAppearSound();
+        if (isCanPlaySound)
+        {
+            PlayRandomAppearSound();
+            isCanPlaySound = false;
+        }
+       
     }
 
     private void OnDisable()
     {
-        PlayRandomDisappearSound();
+        print("asdnkasnYYYYY");
+        if (isCanPlaySound)
+        {
+            PlayRandomDisappearSound();
+            isCanPlaySound = false;
+        }
     }
 
-    private void PlayRandomAppearSound()
+    public void PlayRandomAppearSound()
     {
         if (appearSounds.Length > 0 && appearAudioSource != null)
         {
@@ -52,7 +72,7 @@ public class ObjectActivationSound : MonoBehaviour
         }
     }
 
-    private void PlayRandomDisappearSound()
+    public void PlayRandomDisappearSound()
     {
         if (disappearSounds.Length > 0 && disappearAudioSource != null)
         {
